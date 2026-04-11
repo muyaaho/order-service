@@ -6,3 +6,4 @@ data class ProductResponse(
     val price: Long,
     val stockQuantity: Int,
 )
+

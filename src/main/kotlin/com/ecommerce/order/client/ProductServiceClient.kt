@@ -7,7 +7,10 @@ import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
 
 // name: 호출할 서비스의 Eureka/Consul 등록 이름 (서비스 ID)
-@FeignClient(name = "product-service")
+@FeignClient(
+    name = "product-service",
+    fallback = ProductServiceClientFallback::class
+)
 interface ProductServiceClient {
 
     // 호출할 `product-service`의 API 시그니처와 동일하게 메서드 선언

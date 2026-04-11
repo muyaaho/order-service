@@ -19,3 +19,12 @@ resilience4j:
 
         # --- HALF_OPEN 상태에서의 동작 ---
         permitted-number-of-calls-in-half-open-state: 3 # 3번의 테스트 호출 허용
+  retry:
+    instances:
+      product-service:
+        max-attempts: 3 # 최대 3번 시도
+        wait-duration: 100ms
+        # 어떤 예외 발생 시 재시도?
+        retry-exceptions:
+          - feign.FeignException$ServiceUnavailable
+          - java.util.concurrent.TimeoutException

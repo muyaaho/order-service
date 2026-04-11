@@ -1,0 +1,21 @@
+# Feign에 서킷 브레이커 기능 활성화
+feign:
+  circuitbreaker:
+    enabled: true
+
+# Resilience4j 서킷 브레이커 상세 설정
+resilience4j:
+  circuitbreaker:
+    # 설정 그룹 정의
+    instances:
+      product-service:
+        # --- 서킷을 OPEN 상태로 전환할 조건 ---
+        sliding-window-type: COUNT_BASED  # 최근 호출 횟수 기반으로 실패율 계산
+        sliding-window-size: 10           # 최근 10번의 호출을 샘플링
+        failure-rate-threshold: 50        # 그 중 50% 이상 실패하면 서킷 open
+
+        # --- OPEN 상태에서의 동작 ---
+        wait-duration-in-open-state: 5s   # OPEN 상태 5초간 유지 이후 HALF_OPEN
+
+        # --- HALF_OPEN 상태에서의 동작 ---
+        permitted-number-of-calls-in-half-open-state: 3 # 3번의 테스트 호출 허용

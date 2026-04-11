@@ -23,6 +23,12 @@ dependencyManagement {
 
 dependencies {
     testImplementation(kotlin("test"))
+    // Spring Cloud Circuit Breaker 스타터 (Resilience4j 구현체 포함)
+    implementation("org.springframework.cloud:spring-cloud-starter-circuitbreaker-resilience4j")
+
+    // Feign과의 연동을 위해 필요
+    implementation("io.github.resilience4j:resilience4j-feign")
+
     implementation("org.springframework.cloud:spring-cloud-starter-openfeign")
 
     // 3. Spring MVC, 내장 Tomcat, JSON(Jackson)을 포함하는 핵심 스타터

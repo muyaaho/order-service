@@ -2,6 +2,7 @@ package com.ecommerce.order.service
 
 import com.ecommerce.order.client.CreateOrderRequest
 import com.ecommerce.order.client.ProductServiceClient
+import com.ecommerce.order.domain.OrderRepository
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 

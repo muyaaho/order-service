@@ -1,5 +1,6 @@
 package com.ecommerce.order.domain
 
+import com.ecommerce.order.api.OrderLine
 import jakarta.persistence.Column
 import jakarta.persistence.Entity
 import jakarta.persistence.GeneratedValue
@@ -15,13 +16,6 @@ class Order (
     val id: Long? = null,    // id는 DB가 생성하므로 주 생성자에서 제외
 
     @Column(nullable = false)
-    val productId: Long,    // 제품 Id
+    val orderLine: List<OrderLine>,
 
-    @Column(nullable = false)
-    val quantity: Int,      // 수량
-
-    @Column(nullable = false)
-    val memberId: Long,     // 누가 시켰는지
-
-){
-}
+)

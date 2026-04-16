@@ -3,7 +3,8 @@ package com.ecommerce.order.api
 // 주문정보 응답 DTO
 data class OrderResponse (
     val id: Long,
-    val orderLine: OrderLine
+    val orderLine: OrderLine,
+    val status: OrderLineStatus
 )
 
 data class OrderLine(

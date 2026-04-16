@@ -10,4 +10,5 @@ data class ProductResponse(
 data class CreateOrderRequest (
     val productId: Long,           // 어떤걸 요청했는지
     val quantity: Int,      // 몇 개 요청했는지
+    val memberId: Long,     // 누가 요청했는지
 )

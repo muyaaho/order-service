@@ -4,7 +4,8 @@ package com.ecommerce.order.api
 data class OrderResponse (
     val id: Long,
     val orderLine: OrderLine,
-    val status: OrderLineStatus
+    val status: OrderLineStatus,
+    val memberId: Long
 )
 
 data class OrderLine(

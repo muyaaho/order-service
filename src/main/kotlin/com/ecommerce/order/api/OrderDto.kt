@@ -4,15 +4,15 @@ package com.ecommerce.order.api
 data class OrderResponse (
     val id: Long,
     val orderLine: OrderLine,
-    val status: OrderLineStatus,
-    val memberId: Long
+    val memberId: Long,
+    val totalAmount: Long,
 )
 
 data class OrderLine(
     val productId: Long,
     val price: Long,
-    val quantity: Int,
-    val status:OrderLineStatus
+    var quantity: Int,
+    var status:OrderLineStatus
 )
 
 enum class OrderLineStatus{PENDING, CONFIRMED, SHIPPED}

@@ -11,11 +11,17 @@ import jakarta.persistence.Table
 @Entity
 @Table(name = "orders")
 class Order (
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Long? = null,    // id는 DB가 생성하므로 주 생성자에서 제외
+    @Column(nullable = false)
+    var orderLine: List<OrderLine>,
 
     @Column(nullable = false)
-    val orderLine: List<OrderLine>,
+    val memberId: Long?,
 
-)
+    @Column
+    var totalAmount: Long
+
+) : BaseEntity() {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    val id: Long? = null    // id는 DB가 생성하므로 주 생성자에서 제외
+}

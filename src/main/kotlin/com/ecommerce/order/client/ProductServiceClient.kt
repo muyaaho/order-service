@@ -18,8 +18,8 @@ interface ProductServiceClient {
     fun getProduct(@PathVariable productId: Long): ProductResponse
 
     // 상품 재고 차감을 위한 API 호출
-    //@PostMapping("/api/v1/products/decrease-stock")
-    //fun decreaseStock(@RequestBody request: DecreaseStockRequest)
+    @PostMapping("/api/v1/products/decrease-stock")
+    fun decreaseStock(@RequestBody request: DecreaseStockRequest)
 
     // 끝까지 가보고 없는 부분 추가해서 만들기!
 }

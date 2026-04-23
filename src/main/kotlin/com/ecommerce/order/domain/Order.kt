@@ -20,7 +20,8 @@ class Order (
     @OneToMany(cascade = [CascadeType.ALL], orphanRemoval = true)
     val orderLines: MutableList<OrderLine> = mutableListOf(),
     var totalAmount: Long = 0,
-    var status: OrderLineStatus
+    var status: OrderLineStatus,
+    val memberId: Long,
 
 ) : BaseEntity() {
     @Id

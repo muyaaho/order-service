@@ -2,6 +2,7 @@ package com.ecommerce.order.api
 
 import com.ecommerce.order.domain.Order
 
+
 // 주문정보 응답 DTO
 data class OrderResponse (
     val id: Long,
@@ -28,7 +29,7 @@ enum class OrderLineStatus{PENDING, CONFIRMED, SHIPPED, CANCELLED}
 fun Order.toResponse(): OrderResponse {
     return OrderResponse (
         id = this.id!!,
-        memberId = this.memberId!!,
+        memberId = this.memberId,
         orderLines = this.orderLines,
     )
 }
@@ -48,3 +49,6 @@ fun CreateOrderRequest.toEntity(price: Long): Order {
     return order
 }
 
+fun Order.markAsPaid() {
+    status = OrderLineStatus.CONFIRMED
+}

@@ -22,6 +22,11 @@ dependencyManagement {
 
 
 dependencies {
+    // Spring Cloud Stream 스타터
+    implementation("org.springframework.cloud:spring-cloud-stream")
+    // Kafka 바인더 추가
+    implementation("org.springframework.cloud:spring-cloud-stream-binder-kafka")
+
     testImplementation(kotlin("test"))
     // Spring Cloud Circuit Breaker 스타터 (Resilience4j 구현체 포함)
     implementation("org.springframework.cloud:spring-cloud-starter-circuitbreaker-resilience4j")

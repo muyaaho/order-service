@@ -28,3 +28,16 @@ resilience4j:
         retry-exceptions:
           - feign.FeignException$ServiceUnavailable
           - java.util.concurrent.TimeoutException
+
+spring:
+  cloud:
+    stream:
+      kafka:
+        binder:
+          brokers: localhost:9092
+      bindings:
+        # 출력 바인딩의 이름. StreamBridge에서 이 이름을 사용함
+        # 형식: <binding-name>-<in/out>-<index>
+        orderPaidEventProducer-out-0:
+          # 이 바인딩이 연결될 Kafka 토픽 이름
+          destination: ecommerce.orders.paid

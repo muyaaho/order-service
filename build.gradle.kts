@@ -40,7 +40,6 @@ dependencies {
     // 코틀린 표준 라이브러리 및 리플렉션
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.jetbrains.kotlin:kotlin-stdlib")
-    implementation("org.springframework.cloud:spring-cloud-config-server")
 
     // 1. 스프링 부트 기본 테스트 스타터 (JUnit, Mockito, MockMvc 등 포함)
     testImplementation("org.springframework.boot:spring-boot-starter-test") {

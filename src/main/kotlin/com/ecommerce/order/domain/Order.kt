@@ -3,7 +3,7 @@ package com.ecommerce.order.domain
 import com.ecommerce.order.api.OrderLine
 import com.ecommerce.order.api.OrderLineStatus
 import jakarta.persistence.CascadeType
-import jakarta.persistence.Column
+
 import jakarta.persistence.Entity
 import jakarta.persistence.GeneratedValue
 import jakarta.persistence.GenerationType
@@ -34,7 +34,7 @@ class Order (
         }
 
         // 내부 객체 추가
-        val newOrderLine = OrderLine(productId, price, quantity)
+        val newOrderLine = OrderLine(productId, price, quantity, OrderLineStatus.PENDING)
         this.orderLines.add(newOrderLine)
 
         recalculateTotalAmount()
